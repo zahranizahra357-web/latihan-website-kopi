@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - Kopi Nusantara</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Kopi Nusantara</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Hubungi Kami</h2>
+    <p>Silakan isi formulir berikut untuk menghubungi tim Kopi Nusantara:</p>
+
+    <form id="formKontak" action="#" method="post">
+      <label for="nama">Nama:</label><br>
+      <input type="text" id="nama" name="nama" required /><br><br>
+      <span class="error" id="errorNama"></span><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required /><br><br>
+      <span class="error" id="errorEmail"></span><br><br>
+
+      <label for="kategori">Kategori Pesan:</label><br>
+      <select id="kategori" name="kategori">
+        <option value="umum">Umum</option>
+        <option value="produk">Produk</option>
+        <option value="kerjasama">Kerja Sama</option>
+      </select><br><br>
+      <span class="error" id="errorKategori"></span><br><br>
+
+      <label for="pesan">Pesan:</label><br>
+      <textarea id="pesan" name="pesan" rows="5" cols="30"></textarea><br><br>
+      <span class="error" id="errorPesan"></span><
+
+      <input type="checkbox" id="langganan" name="langganan" value="ya">
+      <label for="langganan">Saya ingin menerima newsletter</label><br><br>
+      
+
+      <label for="tanggal">Tanggal Pengiriman Pesan:</label><br>
+      <input type="date" id="tanggal" name="tanggal" required /><br><br>
+
+      <label>Jenis Kelamin:</label><br>
+      <input type="radio" id="laki" name="gender" value="Laki-laki" required>
+      <label for="laki">Laki-laki</label>
+      <input type="radio" id="perempuan" name="gender" value="Perempuan">
+      <label for="perempuan">Perempuan</label><br><br>
+
+      <label for="file">Pilih file gambar/dokumen:</label><br>
+      <input type="file" id="file" name="file" accept=".jpg,.png,.pdf,.docx" /><br><br>
+
+      <button type="submit">Kirim</button>
+      <button type="reset">Clear Data</button>
+
+      <p id="errorMsg" style="color:red;"></p>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 Kopi Nusantara</p>
+  </footer>
+  <script type="module" src="js/form.js"></script>
+  <script type="module" src="js/newsletter.js"></script>
+  
+</body>
+</html>

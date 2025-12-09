@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil UMKM - Kopi Nusantara</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <script src="script.js" defer></script>
+  <header>
+    <h1>Kopi Nusantara</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <footer>
+    <h3>Daftar Wishlist Produk</h3>
+    <form>
+      <input type="text" id="produkInput" placeholder="Nama produk..."/>
+
+      <p> Preview: <span id="previewProduk"></span></p>
+      <button id="tambahBtn">Tambah Produk</button>
+    </form>
+
+    <ul id="daftarProduk"></ul>
+
+    <hr />
+    <label for="temaSelect">Pilih Tema Warna: </label>
+    <select id="temaSelect">
+      <option value="white">Putih</option>
+      <option value="lightblue">Biru Muda</option>
+      <option value="lightyellow">Kuning Muda</option>
+    </select>
+  </footer>
+
+  <p>Berikut daftar harga produk kopi nusantara yang kami sediakan:</p>
+  <table border="1" cellspacing="0" cellpadding="8">
+         <thead>
+            <tr>
+              <th>Produk</th>
+              <th>Ukuran</th>
+              <th>Harga</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+                <td>Kopi Arabika Gayo</td>
+                <td>250g</td>
+                <td>Rp 45.000</td>
+            </tr>
+            <tr>
+                <td>Kopi Robusta Temanggung</td>
+                <td>250g</td>
+                <td>Rp 38.000</td>
+            </tr>
+            <tr>
+                <td>Kopi Liberika Riau</td>
+                <td>250g</td>
+                <td>Rp 42.0000</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center; background-color: #eee;">
+                    Semua harga sudah termasuk PPN
+                </td>  
+            </tr>
+         </tbody>
+         </table>
+         <ul>
+        <h2>Produk Unggulan Kami</h2>
+    <div class="card">
+      <img src="images/index.png" alt="Produk UMKM" >
+      <h3>Kopi Arabika Gayo</h3>
+      <p>
+        Kopi khas Aceh dengan aroma segar dan rasa asam yang halus.
+      </p>
+    </div>
+    <section>
+      <h2>Layanan Unggulan</h2>
+      <ul id="layanan-list"></ul>
+    </section>
+  </main>
+  
+    <h3>Rating Produk: <span id="hasil-rating"></span></h3>
+<script>
+      let rating = 4;
+      if (rating >= 4.5) {
+        document.getElementById("hasil-rating").textContent = "★★★★★ Sangat Disarankan";
+      } else if (rating >= 3) {
+        document.getElementById("hasil-rating").textContent = "★★★ Rekomendasi Biasa";
+      } else {
+        document.getElementById("hasil-rating").textContent = "★ TidakDirekomendasikan";
+      }
+</script>
+
+ <section>
+      <h2>Form Pemesanan</h2>
+      <form onsubmit="return cekForm()">
+        <input type="text" id="namaProduk" placeholder="Nama Produk">
+        <input type="number" id="jumlah" placeholder="Jumlah">
+        <input type="number" id="harga" placeholder="Harga per Produk (Rp)">
+        <button type="submit">Pesan</button>
+      </form>
+      <p><strong>Total Belanja:</strong> <span id="total-belanja">-</span></p>
+    </section>
+  </main>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const produkInput = document.getElementById("produkInput");
+              const tambahBtn = document.getElementById("tambahBtn");
+              const daftarProduk = document.getElementById("daftarProduk");
+              const previewProduk = document.getElementById("previewProduk");
+              const temaSelect = document.getElementById("temaSelect");
+          // Event 1: Tambah Produk ke daftar (click)
+          tambahBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const namaProduk = produkInput.value.trim();
+            if (namaProduk !== "") {
+              const li = document.createElement("li");
+              li.textContent = namaProduk;
+
+              li.addEventListener("mouseover",() =>
+            li.style.backgroundColor = "#e0e0e0");
+              li.addEventListener("mouseout", () => li.style.backgroundColor="");
+
+              li.addEventListener("dblclick", () => {
+                if (confirm("Yakin ingin menghapus produk ini?")) {
+                  li.remove();
+                }
+              });
+
+              daftarProduk.appendChild(li);
+              produkInput.value = "";
+              previewProduk.textContent = "";
+            }
+          });
+          produkInput.addEventListener("keyup", function () {
+          previewProduk.textContent = produkInput.value;
+          });
+          // Event 3: Ubah tema background (change)
+          temaSelect.addEventListener("change", function () {
+            document.body.style.backgroundColor = temaSelect.value;
+          });
+        });
+          </script>
+        <body>
+  <header>
